@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="d173594583dcd3103284c5a6feaad3fe" label="Leave Record" max_length="40" name="x_2262012_leave_1_leave_record" type="collection">
+        <element label="Document Attachment" max_length="40" name="document_attachment" type="file_attachment"/>
+        <element label="Start Date" max_length="40" name="start_date" type="glide_date"/>
+        <element label="End Date" max_length="40" name="end_date" type="glide_date"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Is Emeregency Leave?" max_length="40" name="is_emeregency_leave" type="boolean"/>
+        <element label="Number of leave days" max_length="40" name="number_of_leave_days" type="integer"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Approve" sequence="4" value="approve"/>
+                <element inactive_on_update="false" label="Manager Review" sequence="2" value="manager_review"/>
+                <element inactive_on_update="false" label="Submitted" sequence="1" value="submitted"/>
+                <element inactive_on_update="false" label="Rejected" sequence="5" value="rejected"/>
+                <element inactive_on_update="false" label="HR Review" sequence="3" value="hr_review"/>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+            </choice>
+        </element>
+        <element label="Contact Number" max_length="40" name="contact_number_during_leave" type="integer"/>
+        <element choice="1" label="Leave Type" max_length="40" name="leave_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Casual" sequence="1" value="casual_leave"/>
+                <element inactive_on_update="false" label="Maternity" sequence="5" value="maternity_leave"/>
+                <element inactive_on_update="false" label="Emeregency" sequence="3" value="emergency_leave"/>
+                <element inactive_on_update="false" label="Sick" sequence="0" value="sick_leave"/>
+                <element inactive_on_update="false" label="Peternity" sequence="4" value="paternity_leave"/>
+                <element inactive_on_update="false" label="Annual" sequence="2" value="annual_leave"/>
+            </choice>
+        </element>
+        <element label="Employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
+        <element label="HR Remarks" max_length="200" name="hr_remarks" type="string"/>
+        <element label="Leave Balance" max_length="40" name="leave_balance" type="integer"/>
+        <element label="Manager Comments" max_length="200" name="manager_comments" type="string"/>
+        <element label="HR Reviewer" max_length="32" name="hr_reviewer" reference="sys_user" type="reference"/>
+        <element label="Reason" mandatory="true" max_length="200" name="reason" type="string"/>
+        <index name="index">
+            <element name="employee"/>
+        </index>
+        <index name="index2">
+            <element name="hr_reviewer"/>
+        </index>
+    </element>
+</database>

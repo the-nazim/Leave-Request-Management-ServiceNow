@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 06:42:03</sys_created_on>
+        <sys_id>ff74f50583d017103284c5a6feaad37d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leaverequestutils.x_2262012_leave_1.employee</sys_name>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_security_acl display_value="leaverequestutils">b3743549835017103284c5a6feaad3eb</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_ff74f50583d017103284c5a6feaad37d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 06:42:03</sys_updated_on>
+        <sys_user_role display_value="x_2262012_leave_1.employee" name="x_2262012_leave_1.employee">fa7299c183dcd3103284c5a6feaad3a8</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="70c5e109835017103284c5a6feaad3ec" label="User Leave Tracking " max_length="40" name="x_2262012_leave_1_user_leave_tracking" type="collection">
+        <element label="Employee Name" max_length="32" name="employee_name" reference="sys_user" type="reference"/>
+        <element default="30" label="Maternity Leave" max_length="40" name="maternity_leave" type="string"/>
+        <element default="5" label="Sick Leave" max_length="40" name="sick_leave" type="string"/>
+        <element default="30" label="Paternity Leave" max_length="40" name="paternity_leave" type="string"/>
+        <element default="10" label="Casual Leave" max_length="40" name="casual_leave" type="string"/>
+        <element default="20" label="Annual Leave" max_length="40" name="annual_leave" type="string"/>
+        <element default="5" label="Emergency Leave" max_length="40" name="emergency_leave" type="string"/>
+        <index name="index">
+            <element name="employee_name"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_2262012_leave_1.leaverequestutils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>leaverequestutils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var leaverequestutils = Class.create();
+leaverequestutils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	balanceLeave: function() {
+		var employee = this.getParameter("employee");
+		var leaveType = this.getParameter("leave_type");
+		var currentDays = this.getParameter("current_days");
+		var gr = new GlideRecord("x_2262012_leave_1_user_leave_tracking");
+		if(gr.get("employee_name", employee)) {
+			var totalDays = gr.getValue(leaveType);
+			var newDays = totalDays-currentDays;
+			gr.setValue(leaveType, newDays);
+			gr.update();
+			return newDays.toString();
+		}
+		else {
+			gr.newRecord();
+			gr.setValue("employee_name", employee);
+			var defaultDays = gr.getValue(leaveType);
+			var newLeave = defaultDays-currentDays;
+			gr.setValue(leaveType, newLeave);
+			gr.insert();
+			return newLeave.toString();
+		}
+	},	
+
+
+    type: 'leaverequestutils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 06:42:02</sys_created_on>
+        <sys_id>98a8a94d835017103284c5a6feaad3cb</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>leaverequestutils</sys_name>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_update_name>sys_script_include_98a8a94d835017103284c5a6feaad3cb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 10:15:08</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</application>
+        <file_path/>
+        <instance_id>1a9d8637ebf70b5c3a48f459bad0cdcf</instance_id>
+        <instance_name>dev455348</instance_name>
+        <merge_base/>
+        <name>sys_script_include_98a8a94d835017103284c5a6feaad3cb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_2262012_leave_1.leaverequestutils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;leaverequestutils&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var leaverequestutils = Class.create();
+leaverequestutils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	balanceLeave: function() {
+		var employee = this.getParameter("employee");
+		var leaveType = this.getParameter("leave_type");
+		var currentDays = this.getParameter("current_days");
+		var gr = new GlideRecord("x_2262012_leave_1_user_leave_tracking");
+		if(gr.get("employee_name", employee)) {
+			var totalDays = gr.getValue(leaveType);
+			var newDays = totalDays-currentDays;
+			gr.setValue(leaveType, newDays);
+			gr.update();
+			return newDays.toString();
+		}
+		else {
+			gr.newRecord();
+			gr.setValue("employee_name", employee);
+			var defaultDays = gr.getValue(leaveType);
+			var newLeave = defaultDays-currentDays;
+			gr.setValue(leaveType, newLeave);
+			gr.insert();
+			return newLeave.toString();
+		}
+	},	
+
+
+    type: 'leaverequestutils'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-10-31 06:42:02&lt;/sys_created_on&gt;&lt;sys_id&gt;98a8a94d835017103284c5a6feaad3cb&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;leaverequestutils&lt;/sys_name&gt;&lt;sys_package display_value="Leave Request Management" source="x_2262012_leave_1"&gt;367299c183dcd3103284c5a6feaad370&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Leave Request Management"&gt;367299c183dcd3103284c5a6feaad370&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_98a8a94d835017103284c5a6feaad3cb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-10-31 10:15:08&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1223554670</payload_hash>
+        <record_name>leaverequestutils</record_name>
+        <reverted_from/>
+        <source>367299c183dcd3103284c5a6feaad373</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 10:15:08</sys_created_on>
+        <sys_id>8545a241835817103284c5a6feaad3c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a19174b9ce0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 10:15:08</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>8545a241485817104d2292f50be8b7c0</update_guid>
+        <update_guid_history>8545a241485817104d2292f50be8b7c0:-1223554670,7af1ae892c1817104ec330d07f7885c3:-1899995475,c5a81a49bed417100f3d2aa7e1da51e6:1963277413,99d4168d77941710c453826c64df4ccf:1901581251,7ed3decd66941710304d4cd078ae2be8:1793130938,3b74f505e2d0171053d5254c89e00886:1487821046</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 11:02:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>9376ecfb5d5a4a90a8c7793f4fba1240</sys_id>
+        <sys_metadata>98a8a94d835017103284c5a6feaad3cb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leaverequestutils</sys_name>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_scope_delete display_value="">43c8e2b1e05f4a20aa0b04962b418400</sys_scope_delete>
+        <sys_update_name>sys_script_include_98a8a94d835017103284c5a6feaad3cb</sys_update_name>
+        <sys_update_version display_value="sys_script_include_98a8a94d835017103284c5a6feaad3cb">8545a241835817103284c5a6feaad3c1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 11:02:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

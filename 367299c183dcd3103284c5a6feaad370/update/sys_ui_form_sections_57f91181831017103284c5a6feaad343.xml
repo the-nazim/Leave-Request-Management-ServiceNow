@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="57f91181831017103284c5a6feaad343" sys_domain="global" table="x_2262012_leave_1_leave_record" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-31 04:46:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>aff91181831017103284c5a6feaad348</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_2262012_leave_1_leave_record" name="x_2262012_leave_1_leave_record" sys_domain="global" view="Default view">57f91181831017103284c5a6feaad343</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_2262012_leave_1_leave_record" sys_domain="global" view="Default view">28149d8583dcd3103284c5a6feaad3c0</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-31 04:46:15</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_2262012_leave_1_leave_record</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-31 04:46:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>57f91181831017103284c5a6feaad343</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_2262012_leave_1_leave_record</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+            <sys_update_name>sys_ui_form_sections_57f91181831017103284c5a6feaad343</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-31 04:46:14</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

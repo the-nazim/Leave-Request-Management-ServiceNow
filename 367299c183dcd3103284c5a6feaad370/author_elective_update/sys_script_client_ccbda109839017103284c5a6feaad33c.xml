@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Leave Handling and Validation</name>
+        <order/>
+        <script><![CDATA[function onSubmit(){
+
+   //Type appropriate comment here, and begin script below
+	var employee = g_form.getValue('employee');
+	var startStr = g_form.getValue('start_date');
+    var endStr = g_form.getValue('end_date');
+    var leaveType = g_form.getValue('leave_type');
+
+	var startDate = getDateFromFormat(startStr, g_user_date_format);
+    var endDate = getDateFromFormat(endStr, g_user_date_format);
+
+    var diffInMs = endDate - startDate;
+    var days = diffInMs / (1000 * 60 * 60 * 24);
+	
+	g_form.setValue("number_of_leave_days", days);
+	
+	var ga = new GlideAjax("leaverequestutils");
+	ga.addParam("sysparm_name", "leaveBalance");
+	ga.addParam("employee", employee);
+	ga.addParam("leave_type", leaveType);
+	ga.addParam("current_days", days);
+	ga.getXMLAnswer(balanceLeave);
+
+}
+
+function balanceLeave(balanceDays) {
+	// balanceDays = parseInt(response);
+	alert(balanceDays);
+	g_form.setValue("leave_balance", balanceDays);
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 06:48:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ccbda109839017103284c5a6feaad33c</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Leave Handling and Validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_update_name>sys_script_client_ccbda109839017103284c5a6feaad33c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 10:00:51</sys_updated_on>
+        <table>x_2262012_leave_1_leave_record</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</application>
+        <file_path/>
+        <instance_id>1a9d8637ebf70b5c3a48f459bad0cdcf</instance_id>
+        <instance_name>dev455348</instance_name>
+        <merge_base/>
+        <name>sys_script_client_ccbda109839017103284c5a6feaad33c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Leave Handling and Validation&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit(){
+
+   //Type appropriate comment here, and begin script below
+	var employee = g_form.getValue('employee');
+	var startStr = g_form.getValue('start_date');
+    var endStr = g_form.getValue('end_date');
+    var leaveType = g_form.getValue('leave_type');
+
+	var startDate = getDateFromFormat(startStr, g_user_date_format);
+    var endDate = getDateFromFormat(endStr, g_user_date_format);
+
+    var diffInMs = endDate - startDate;
+    var days = diffInMs / (1000 * 60 * 60 * 24);
+	
+	g_form.setValue("number_of_leave_days", days);
+	
+	var ga = new GlideAjax("leaverequestutils");
+	ga.addParam("sysparm_name", "leaveBalance");
+	ga.addParam("employee", employee);
+	ga.addParam("leave_type", leaveType);
+	ga.addParam("current_days", days);
+	ga.getXMLAnswer(balanceLeave);
+
+}
+
+function balanceLeave(balanceDays) {
+	// balanceDays = parseInt(response);
+	alert(balanceDays);
+	g_form.setValue("leave_balance", balanceDays);
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-10-31 06:48:10&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;ccbda109839017103284c5a6feaad33c&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;Leave Handling and Validation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Leave Request Management" source="x_2262012_leave_1"&gt;367299c183dcd3103284c5a6feaad370&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Leave Request Management"&gt;367299c183dcd3103284c5a6feaad370&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_ccbda109839017103284c5a6feaad33c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-10-31 10:00:51&lt;/sys_updated_on&gt;&lt;table&gt;x_2262012_leave_1_leave_record&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>512497114</payload_hash>
+        <record_name>Leave Handling and Validation</record_name>
+        <reverted_from/>
+        <source>367299c183dcd3103284c5a6feaad373</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 10:00:51</sys_created_on>
+        <sys_id>80022649831817103284c5a6feaad3e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a19167a8140000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 10:00:51</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>80022649201817101ed9b3fc26658de4</update_guid>
+        <update_guid_history>80022649201817101ed9b3fc26658de4:512497114,f3d02e459b181710e108bffcd43ef47d:1822083460,177022c1e7181710649d29bb67103e47:1291347676,62302e455c1817108e175408c75dd807:1539057690,39ee52458f181710d58037094f6cc662:-361701895,59699e89eed417107851ccee01ae81c5:1442631455,4cc5564d0d5417103b6aeb27439ab1ae:550138249,65e57905a9d01710194ac1728c7b68c9:1218029285</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-31 11:02:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>bcf560ce17334e9189fac11c5ef60731</sys_id>
+        <sys_metadata>ccbda109839017103284c5a6feaad33c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Leave Handling and Validation</sys_name>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_parent display_value="Leave Record">d173594583dcd3103284c5a6feaad3fe</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_scope_delete display_value="">43c8e2b1e05f4a20aa0b04962b418400</sys_scope_delete>
+        <sys_update_name>sys_script_client_ccbda109839017103284c5a6feaad33c</sys_update_name>
+        <sys_update_version display_value="sys_script_client_ccbda109839017103284c5a6feaad33c">80022649831817103284c5a6feaad3e5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-31 11:02:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
