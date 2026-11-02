@@ -17,11 +17,14 @@ leaveHandlerUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor,
 		var leaveType = this.getParameter('leave_type');
 		var currentDays = this.getParameter('current_days');
 		var gr = new GlideRecord('x_2262012_leave_1_user_leave_tracking');
-		if(gr.get(employeeName)) {
+		gr.addQuery("employee_name", employeeName);
+		gr.setLimit(1);
+		gr.query();
+		if(gr.next()) {
 			var leaveDays = gr.getValue(leaveType);
 			var availableBalance = leaveDays - currentDays;
 			
-			return updatedDays;
+			return availableBalance;
 		} 
 	},
 
@@ -31,13 +34,13 @@ leaveHandlerUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor,
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-10-31 12:37:41</sys_created_on>
         <sys_id>fea54741831c17103284c5a6feaad3cf</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>leaveHandlerUtils</sys_name>
         <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
         <sys_update_name>sys_script_include_fea54741831c17103284c5a6feaad3cf</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-10-31 12:37:41</sys_updated_on>
+        <sys_updated_on>2026-11-02 07:13:13</sys_updated_on>
     </sys_script_include>
 </record_update>

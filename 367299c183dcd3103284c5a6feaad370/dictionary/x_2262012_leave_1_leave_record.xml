@@ -27,7 +27,7 @@
                 <element inactive_on_update="false" label="Annual" sequence="2" value="annual_leave"/>
             </choice>
         </element>
-        <element label="Employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="Employee" max_length="32" name="employee" reference="sys_user" type="reference" use_dynamic_default="true"/>
         <element label="HR Remarks" max_length="200" name="hr_remarks" type="string"/>
         <element label="Leave Balance" max_length="40" name="leave_balance" type="integer"/>
         <element label="Manager Comments" max_length="200" name="manager_comments" type="string"/>
