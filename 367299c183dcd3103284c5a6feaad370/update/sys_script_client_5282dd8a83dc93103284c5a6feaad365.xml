@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Medical Certificate Upload</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script below
+	var leaveDays = g_form.getValue('number_of_leave_days');
+	var leaveType = g_form.getValue('leave_type');
+
+	if((leaveDays>2)&&(leaveType=='sick_leave')) {
+
+		var hasAttachment = false;
+		
+		try {
+            // Check the native header paperclip element
+            var attachmentElement = document.getElementById('header_attachment_list_label');
+            
+            if (attachmentElement) {
+                // If the style is not hidden, an attachment exists
+                var style = window.getComputedStyle(attachmentElement);
+                if (style.display !== 'none' && style.visibility !== 'hidden') {
+                    hasAttachment = true;
+                }
+            }
+        } catch (e) {
+            console.warn("DOM access blocked. Ensure 'Isolate script' is unchecked on the Client Script.");
+        }
+
+        // 3. Block submission and show error if missing
+        if (!hasAttachment) {
+            g_form.addErrorMessage('A medical certificate is required for Sick Leave exceeding 2 days. Please click the paperclip icon at the top right to attach it.');
+            return false;
+        }
+    }
+    return true;
+
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-03 06:48:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5282dd8a83dc93103284c5a6feaad365</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Medical Certificate Upload</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_update_name>sys_script_client_5282dd8a83dc93103284c5a6feaad365</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-03 07:07:46</sys_updated_on>
+        <table>x_2262012_leave_1_leave_record</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

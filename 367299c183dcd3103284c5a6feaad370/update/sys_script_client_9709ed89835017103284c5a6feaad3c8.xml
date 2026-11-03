@@ -6,28 +6,36 @@
         <description/>
         <field>leave_type</field>
         <global>true</global>
-        <isolate_script>true</isolate_script>
+        <isolate_script>false</isolate_script>
         <messages/>
         <name>Medical Cert for Sick Leave</name>
         <order/>
-        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-   if (isLoading || newValue === '') {
-      return;
-   }
+        <script><![CDATA[function onSubmit() {
 
    //Type appropriate comment here, and begin script below
-	var startDateStr = g_form.getValue('start_date');
-	var endDateStr = g_form.getValue('end_date');
+	// var startDateStr = g_form.getValue('start_date');
+	// var endDateStr = g_form.getValue('end_date');
 
-	var startDate = getDateFromFormat(startDateStr, g_user_date_format);
-	var endDate = getDateFromFormat(endDateStr, g_user_date_format);
+	// var startDate = getDateFromFormat(startDateStr, g_user_date_format);
+	// var endDate = getDateFromFormat(endDateStr, g_user_date_format);
 	
-	var diffInMs = endDate - startDate;
-    var days = diffInMs / (1000 * 60 * 60 * 24);
+	// var diffInMs = endDate - startDate;
+    // var days = diffInMs / (1000 * 60 * 60 * 24);
 
-	if((days>2)&&(newValue=='sick')) {
-		g_form.setMandatory('document_attachment', 'true');
-		g_form.setDisplay('document_attachment', 'true');
+	var leaveDays = g_form.getValue('number_of_leave_days');
+	var leaveType = g_form.getValue('leave_type');
+
+	if((leaveDays>2)&&(leaveType=='sick_leave')) {
+		
+		// alert(leaveDays+"::"+leaveType);
+		
+		var attachmentBanner = document.getElementById('header_attachment_list_label');
+
+		if (!attachmentBanner || attachmentBanner.getElementsByTagName('li').length === 0) {
+            // Block submission and alert the user
+            g_form.addErrorMessage('A medical certificate must be attached via the paperclip icon for sick leave exceeding 2 days.');
+            return false; 
+        }
 	}
 
 }]]></script>
@@ -37,7 +45,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9709ed89835017103284c5a6feaad3c8</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Medical Cert for Sick Leave</sys_name>
         <sys_overrides/>
         <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
@@ -45,10 +53,10 @@
         <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
         <sys_update_name>sys_script_client_9709ed89835017103284c5a6feaad3c8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-11-02 06:40:43</sys_updated_on>
+        <sys_updated_on>2026-11-03 06:48:57</sys_updated_on>
         <table>x_2262012_leave_1_leave_record</table>
-        <type>onChange</type>
-        <ui_type>0</ui_type>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
         <view/>
     </sys_script_client>
 </record_update>

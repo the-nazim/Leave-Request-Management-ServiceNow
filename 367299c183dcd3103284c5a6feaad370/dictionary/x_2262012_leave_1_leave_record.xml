@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="d173594583dcd3103284c5a6feaad3fe" label="Leave Record" max_length="40" name="x_2262012_leave_1_leave_record" type="collection">
-        <element label="Document Attachment" max_length="40" name="document_attachment" type="file_attachment"/>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" audit="true" db_object_id="d173594583dcd3103284c5a6feaad3fe" label="Leave Record" max_length="40" name="x_2262012_leave_1_leave_record" type="collection">
+        <element active="false" label="Document Attachment" max_length="40" name="document_attachment" type="file_attachment"/>
         <element label="Start Date" max_length="40" name="start_date" type="glide_date"/>
         <element label="End Date" max_length="40" name="end_date" type="glide_date"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>

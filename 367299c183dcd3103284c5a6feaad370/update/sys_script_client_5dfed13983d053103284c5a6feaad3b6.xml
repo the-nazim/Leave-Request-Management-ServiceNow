@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Insufficient blance leave warning</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script below
+
+   var balanceLeave = g_form.getValue('leave_balance');
+   var daysRequested = g_form.getValue('number_of_leave_days');
+
+   if (balanceLeave === '' || daysRequested === '') {
+		return true;
+   }
+
+   if(balanceLeave <=0 ) {
+		var message = "Warning: You are requesting " + daysRequested + 
+                      " days, but your available balance is only " + balanceLeave + 
+                      " days.\n\nDo you want to submit this request anyway?";
+                      
+        var userWantsToProceed = confirm(message);
+        
+        // 4. If they click "Cancel" (false), stop the submission
+        if (!userWantsToProceed) {
+
+			g_form.submitted = false;
+            return false; 
+        }
+   }
+
+   return true;
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-11-02 13:08:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5dfed13983d053103284c5a6feaad3b6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Insufficient blance leave warning</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
+        <sys_update_name>sys_script_client_5dfed13983d053103284c5a6feaad3b6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-11-02 13:44:56</sys_updated_on>
+        <table>x_2262012_leave_1_leave_record</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

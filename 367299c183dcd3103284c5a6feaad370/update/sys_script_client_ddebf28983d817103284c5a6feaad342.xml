@@ -4,7 +4,7 @@
         <applies_extended>false</applies_extended>
         <condition/>
         <description/>
-        <field>end_date</field>
+        <field>number_of_leave_days</field>
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
@@ -17,24 +17,26 @@
 
    //Type appropriate comment here, and begin script below
     var employee = g_form.getValue('employee');
-	var startStr = g_form.getValue('start_date');
-	var endStr = g_form.getValue('end_date');
+	// var startStr = g_form.getValue('start_date');
+	// var endStr = g_form.getValue('end_date');
 	var leaveType = g_form.getValue('leave_type');
 
-	var startDate = getDateFromFormat(startStr, g_user_date_format);
-    var endDate = getDateFromFormat(endStr, g_user_date_format);
+	// var startDate = getDateFromFormat(startStr, g_user_date_format);
+    // var endDate = getDateFromFormat(endStr, g_user_date_format);
 
     // Calculate the difference in days
-    var diffInMs = endDate - startDate;
-    var days = diffInMs / (1000 * 60 * 60 * 24);
+    // var diffInMs = endDate - startDate;
+    // var days = diffInMs / (1000 * 60 * 60 * 24);
 
 	// alert("leaveType: "+ leaveType);
+
+	// var days = g_form.getValue('number_of_leave_days');
 
 	var ga = new GlideAjax('leaveHandlerUtils');
 	ga.addParam('sysparm_name', 'balanceLeave');
 	ga.addParam('employee_name', employee);
 	ga.addParam('leave_type', leaveType);
-	ga.addParam('current_days', days);
+	ga.addParam('current_days', newValue);
 	ga.getXMLAnswer(leaveCalculation);
 }
 
@@ -48,7 +50,7 @@ function leaveCalculation(leaveBalance){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ddebf28983d817103284c5a6feaad342</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Number of leaves left</sys_name>
         <sys_overrides/>
         <sys_package display_value="Leave Request Management" source="x_2262012_leave_1">367299c183dcd3103284c5a6feaad370</sys_package>
@@ -56,7 +58,7 @@ function leaveCalculation(leaveBalance){
         <sys_scope display_value="Leave Request Management">367299c183dcd3103284c5a6feaad370</sys_scope>
         <sys_update_name>sys_script_client_ddebf28983d817103284c5a6feaad342</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-11-02 11:19:50</sys_updated_on>
+        <sys_updated_on>2026-11-02 14:05:41</sys_updated_on>
         <table>x_2262012_leave_1_leave_record</table>
         <type>onChange</type>
         <ui_type>10</ui_type>
